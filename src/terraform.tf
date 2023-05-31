@@ -6,9 +6,13 @@ terraform {
     }
   }
 
-  backend "s3" {
-    key    = "terraform/orbika/tfstate"
-    region = "us-east-1"
+  #backend "s3" {
+  #  key    = "terraform/orbika/tfstate"
+  #  region = "us-east-1"
+  #}
+
+  module "ec2" {
+    source = "./modules/sbc-module-ec2"
   }
 
 }
