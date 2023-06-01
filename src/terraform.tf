@@ -11,7 +11,7 @@ terraform {
     region = "us-east-1"
   }
 
-  module "ec2"{
+  backend "ec2"{
     source = "./sbc-module-ec2"
   }
 
