@@ -10,5 +10,5 @@ terraform {
     key    = "terraform/orbika/tfstate"
     region = "us-east-1"
   }
-
+  
 }
