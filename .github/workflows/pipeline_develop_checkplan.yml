@@ -12,7 +12,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP }}
     defaults:
       run:
-        working-directory: src
+        working-directory: src/sbc-module-ec2
     steps:
 
       - name: Checkout
