@@ -6,14 +6,14 @@ terraform {
     }
   }
 
-  backend "s3" {
-    key    = "terraform/orbika/tfstate"
+  backend "ec2" {
     region = "us-east-1"
+    ami = "ami-0889a44b331db0194"
+    instance_type = "t1.micro"
+    tags = {
+      "name" = "first_instance"
+    }    
   }
 
-  backend "ec2"{
-    source = "./modules/sbc-module-ec2"
-  }
-
-
+  
 }
