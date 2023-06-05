@@ -6,9 +6,9 @@ terraform {
     }
   }
 
-  backend "s3" {
+ /* backend "s3" {
     key    = "terraform/orbika/tfstate"
     region = "us-east-1"
-  }
+  }*/
 
 }
