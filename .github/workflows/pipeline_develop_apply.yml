@@ -10,8 +10,8 @@ jobs:
     if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
     defaults:
       run:
         working-directory: src
@@ -42,4 +42,4 @@ jobs:
         run: terraform plan -var="branch_name=dev"
 
       - name: Terraform apply
-        run: terraform destroy #-var="branch_name=dev" -auto-approve
+        run: terraform apply -var="branch_name=dev" -auto-approve
