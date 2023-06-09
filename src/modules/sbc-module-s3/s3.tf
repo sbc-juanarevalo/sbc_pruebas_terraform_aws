@@ -4,7 +4,7 @@ variable "vars3_branch" {
 
 
 resource "aws_s3_bucket" "webtest2" {
-  bucket = "${vars3_branch}-juanfelipe-tf-example"
+  bucket = "juanfelipe-tf-example"
 }
 
 resource "aws_s3_bucket_public_access_block" "example" {
@@ -48,7 +48,7 @@ resource "aws_s3_object" "object1" {
   bucket = aws_s3_bucket.webtest2.bucket
   key = "index.html"
   acl = "public-read"
-  content = "EXITO"
+  content = var.vars3_branch
   content_type = "text/html"
 }
 
