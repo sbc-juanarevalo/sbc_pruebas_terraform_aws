@@ -3,7 +3,8 @@ provider "aws" {
 }
 
 module "s3" {
-    source = "./modules/sbc-module-s3"  
+    source = "./modules/sbc-module-s3"
+    vars3_branch = var.branch_name
 }
 
 /*module "cloudfront" {
