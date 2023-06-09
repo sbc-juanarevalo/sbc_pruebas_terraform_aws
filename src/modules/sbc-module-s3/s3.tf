@@ -1,5 +1,9 @@
+variable "vars3_branch" {
+  type = string
+}
+
 resource "aws_s3_bucket" "webtest2" {
-  bucket = "juanfelipe-tf-example"
+  bucket = "${vars3_branch}-juanfelipe-tf-example"
 }
 
 resource "aws_s3_bucket_public_access_block" "example" {
