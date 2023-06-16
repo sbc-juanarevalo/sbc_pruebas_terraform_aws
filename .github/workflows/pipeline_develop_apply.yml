@@ -45,4 +45,6 @@ jobs:
         run: terraform destroy -var="branch_name=dev" -auto-approve
 
       - name: Terraform invalidation
+        id: install-aws-cli       
         run: aws cloudfront create-invalidation --distribution-id 'E7MJ8QRULWQW' --paths '/index.html'
+        shell: bash
