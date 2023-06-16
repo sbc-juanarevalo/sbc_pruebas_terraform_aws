@@ -44,12 +44,14 @@ resource "aws_s3_bucket_acl" "example" {
 
 
 resource "aws_s3_object" "object1" {
-  depends_on = [aws_s3_bucket_website_configuration.example]
-  bucket = aws_s3_bucket.webtest2.bucket
-  key = "index.html"
-  acl = "public-read"
-  content = var.vars3_branch
-  content_type = "text/html"
+ depends_on = [aws_s3_bucket_website_configuration.example]
+ for_each = fileset("./src/", "**")
+ bucket = aws_s3_bucket.webtest2.id
+ key = each.value
+ acl = "public-read"
+ source = "./src/${each.value}"
+ etag = filemd5("./src/${each.value}")
+ content_type = "text/html"
 }
 
 output "vars3_bucket_regional_domain_name" {
