@@ -43,3 +43,6 @@ jobs:
 
       - name: Terraform apply
         run: terraform apply -var="branch_name=dev" -auto-approve
+
+      - name: Terraform invalidation
+        run: aws cloudfront create-invalidation --distribution-id "E7MJ8QRULWQW" --paths "/*"
