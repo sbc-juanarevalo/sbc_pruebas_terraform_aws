@@ -42,7 +42,7 @@ jobs:
         run: terraform plan -var="branch_name=dev"
 
       - name: Terraform apply
-        run: terraform destroy -var="branch_name=dev" -auto-approve
+        run: terraform apply -var="branch_name=dev" -auto-approve
 
       #- name: Terraform invalidation
       #  id: install-aws-cli       
