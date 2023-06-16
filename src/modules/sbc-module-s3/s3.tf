@@ -4,7 +4,7 @@ variable "vars3_branch" {
 
 
 resource "aws_s3_bucket" "webtest2" {
-  bucket = "juanfelipe-tf-example"
+  bucket = "juanfelipe-terraform-github-prueba"
 }
 
 resource "aws_s3_bucket_public_access_block" "example" {
