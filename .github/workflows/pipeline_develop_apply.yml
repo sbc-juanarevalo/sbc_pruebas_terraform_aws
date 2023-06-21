@@ -41,10 +41,10 @@ jobs:
         id: plan
         run: terraform plan -var="branch_name=dev"
 
-      - name: Terraform apply
-        run: terraform apply -var="branch_name=dev" -auto-approve
+      #- name: Terraform apply
+      #  run: terraform apply -var="branch_name=dev" -auto-approve
 
-      #- name: Terraform invalidation
-      #  id: install-aws-cli       
-      #  run: aws cloudfront create-invalidation --distribution-id 'E7MJ8QRULWQW' --paths '/index.html'
-      #  shell: bash
+      - name: AWS CLI v2
+        uses: imehedi/actions-awscli-v2@latest
+        with:
+          args: cloudfront create-invalidation --distribution-id 'E1DNJ6PRKN7113' --paths '/*'
