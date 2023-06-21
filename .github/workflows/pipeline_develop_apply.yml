@@ -49,7 +49,7 @@ jobs:
       #  run: TEST_VAR='Hello World!'           
           
       - name: loadconfig
-        run: echo config.yml
+        run: cat config.yml
           
 
       - name: AWS CLI v2
