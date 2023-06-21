@@ -16,14 +16,14 @@ jobs:
       run:
         working-directory: src
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      #- name: Checkout
+      #  uses: actions/checkout@v2
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
-        with:
-          terraform_version: 1.0.1
-          terraform_wrapper: false
+      #- name: Setup Terraform
+      #  uses: hashicorp/setup-terraform@v1
+      #  with:
+      #    terraform_version: 1.0.1
+      #    terraform_wrapper: false
 
       #- name: Terraform Format
       #  id: fmt
@@ -45,9 +45,11 @@ jobs:
       #  run: terraform apply -var="branch_name=dev" -auto-approve
 
       - name: uploadconfig
-        run: echo "$idcfdistribution"
-        env: 
-          idcfdistribution : "./config/config.yml"        
+        run: TEST_VAR='Hello World!'           
+          
+      - name: loadconfig
+        run: echo $TEST_VAR
+          
 
       - name: AWS CLI v2
         uses: imehedi/actions-awscli-v2@latest
