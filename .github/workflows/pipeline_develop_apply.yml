@@ -47,7 +47,10 @@ jobs:
       - name: uploadconfig
         run: echo "$idcfdistribution"
         env: 
-          idcfdistribution : ElIDDeLaDistribucion
+          idcfdistribution : "config.yml"
+        default:
+          run:
+            working-directory: config
 
       - name: AWS CLI v2
         uses: imehedi/actions-awscli-v2@latest
