@@ -47,4 +47,4 @@ jobs:
       - name: AWS CLI v2
         uses: imehedi/actions-awscli-v2@latest
         with:
-          args: cloudfront create-invalidation --distribution-id 'E1DNJ6PRKN7113' --paths '/*'
+          args: aws cloudfront create-invalidation --distribution-id 'E1DNJ6PRKN7113' --paths '/*'
