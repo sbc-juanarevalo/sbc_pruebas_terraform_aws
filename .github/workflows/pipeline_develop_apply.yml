@@ -14,7 +14,8 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
     defaults:
       run:
-        working-directory: src
+        #working-directory: src
+        working-directory: config
     steps:
       #- name: Checkout
       #  uses: actions/checkout@v2
@@ -44,11 +45,11 @@ jobs:
       #- name: Terraform apply
       #  run: terraform apply -var="branch_name=dev" -auto-approve
 
-      - name: uploadconfig
-        run: TEST_VAR='Hello World!'           
+      #- name: uploadconfig
+      #  run: TEST_VAR='Hello World!'           
           
       - name: loadconfig
-        run: echo $TEST_VAR
+        run: echo config.yml
           
 
       - name: AWS CLI v2
