@@ -47,12 +47,21 @@ jobs:
 
       #- name: uploadconfig
       #  run: TEST_VAR='Hello World!'           
-          
+      
+      - name: verRuta
+        run: ls
+
+      - name: verArchivo
+        run: cat config.yaml
+
       - name: loadconfig
         run: source config.yaml
 
-      - name: TasteConfig
-        run: printenv        
+      - name: VerVariables
+        run: printenv      
+        
+      - name: VerUnaVariable
+        run: echo $Clave1 
 
       #- name: AWS CLI v2
       #  uses: imehedi/actions-awscli-v2@latest
