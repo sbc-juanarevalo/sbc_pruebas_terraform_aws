@@ -49,8 +49,10 @@ jobs:
       #  run: TEST_VAR='Hello World!'           
           
       - name: loadconfig
-        run: echo config.yml
-          
+        run: source config.yaml
+
+      - name: TasteConfig
+        run: echo $clave1          
 
       - name: AWS CLI v2
         uses: imehedi/actions-awscli-v2@latest
