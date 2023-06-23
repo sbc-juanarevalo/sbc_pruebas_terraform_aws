@@ -8,7 +8,7 @@ jobs:
   Apply:
     name: "Apply"
     if: ${{ github.event.pull_request.merged }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
@@ -61,10 +61,10 @@ jobs:
         run: printenv
         
       - name: EsperarVariable
-        run: wait $Clave1
+        run: sleep 10
         
       - name: VerUnaVariable
-        run: echo $HOME
+        run: echo $Clave1
 
       #- name: AWS CLI v2
       #  uses: imehedi/actions-awscli-v2@latest
