@@ -58,7 +58,10 @@ jobs:
         run: source config.yaml
 
       - name: VerVariables
-        run: printenv      
+        run: printenv
+        
+      - name: EsperarVariable
+        run: wait $Clave1
         
       - name: VerUnaVariable
         run: echo $Clave1 
