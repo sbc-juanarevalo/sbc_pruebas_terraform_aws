@@ -14,7 +14,8 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
     defaults:
       run:
-        working-directory: src        
+        #working-directory: src
+        working-directory: config   
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -48,7 +49,7 @@ jobs:
       #  run: TEST_VAR='Hello World!'           
           
       - name: loadconfig
-        run: ls
+        run: source config.yaml
 
       - name: TasteConfig
         run: echo $clave1          
