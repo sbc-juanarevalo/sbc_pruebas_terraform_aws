@@ -64,7 +64,7 @@ jobs:
         run: sleep 10
         
       - name: VerUnaVariable
-        run: echo $Clave1
+        run: echo $clave1
 
       #- name: AWS CLI v2
       #  uses: imehedi/actions-awscli-v2@latest
