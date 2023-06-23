@@ -64,7 +64,7 @@ jobs:
         run: wait $Clave1
         
       - name: VerUnaVariable
-        run: echo $Clave1 
+        run: echo $HOME
 
       #- name: AWS CLI v2
       #  uses: imehedi/actions-awscli-v2@latest
