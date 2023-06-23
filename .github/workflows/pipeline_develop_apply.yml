@@ -14,8 +14,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
     defaults:
       run:
-        #working-directory: src
-        working-directory: config
+        working-directory: src        
     steps:
       #- name: Checkout
       #  uses: actions/checkout@v2
