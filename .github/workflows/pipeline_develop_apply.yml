@@ -55,7 +55,7 @@ jobs:
         run: cat config.yaml
 
       - name: loadconfig
-        run: clave2=algunaclave
+        run: clave2='algunaclave'
 
       - name: VerVariables
         run: printenv
