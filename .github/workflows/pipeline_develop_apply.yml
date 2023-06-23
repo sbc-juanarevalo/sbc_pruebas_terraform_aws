@@ -52,7 +52,7 @@ jobs:
         run: ls
 
       - name: verArchivo
-        run: cat config.yaml
+        run: cat .bashrc
 
       - name: loadconfig
         run: export clave2="algunaclave"
