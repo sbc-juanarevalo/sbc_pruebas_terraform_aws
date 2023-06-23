@@ -57,6 +57,9 @@ jobs:
       - name: loadconfig
         run: export clave2='algunaclave'
 
+      - name: EsperarVariable
+        run: sleep 10
+
       - name: VerVariables
         run: printenv
         
