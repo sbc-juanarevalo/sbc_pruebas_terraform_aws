@@ -84,15 +84,20 @@ jobs:
           DistributionID: '"E1DNJ6PRKN7113"'
       
 
-      - name: AWS CLI v2        
+      - name: AWS CLI v2
+        #if: ${{ DistributionID == '"E1DNJ6PRKN7113"' }}      
         uses: imehedi/actions-awscli-v2@latest
-        with: 
-          args: cloudfront create-invalidation --distribution-id E1DNJ6PRKN7113 --paths "/index.html"         
+        with:          
           args: cloudfront create-invalidation --distribution-id $DistributionID --paths "/index.html"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
           AWS_DEFAULT_REGION: "Global"
           DistributionID: '"E1DNJ6PRKN7113"'
+          #DistributionID: "E1DNJ6PRKN7113"
+          #DistributionID: 'E1DNJ6PRKN7113'
+          #DistributionID: E1DNJ6PRKN7113
+          #DistributionID: "'E1DNJ6PRKN7113'"
+          
 
       
