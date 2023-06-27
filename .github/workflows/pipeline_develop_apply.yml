@@ -76,6 +76,9 @@ jobs:
         run: |
           env VAR=$(cat config.yaml)
           echo "$VAR"
+
+      - name: Set variables
+        run: |          
           env
           
 
