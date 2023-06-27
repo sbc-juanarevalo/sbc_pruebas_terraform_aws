@@ -55,22 +55,20 @@ jobs:
         run: cat config.yaml
 
       - name: loadconfig
-        run: clave2="algunaclave" && cloudfront create-invalidation --distribution-id "E1DNJ6PRKN7113" --paths "/index.html"
+        run: clave2="algunaclave"
       
 
       - name: VerVariables
-        run: printenv
+        run: printenv            
         
      
-        
-      - name: VerUnaVariable
-        run: echo $clave2
 
-      #- name: AWS CLI v2
-      #  uses: imehedi/actions-awscli-v2@latest
-      #  with:
-      #    args: cloudfront create-invalidation --distribution-id "E1DNJ6PRKN7113" --paths "/index.html"
-      #  env:
-      #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
-      #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
-      #    AWS_DEFAULT_REGION: "Global"
+      - name: AWS CLI v2        
+        uses: imehedi/actions-awscli-v2@latest
+        with:
+          run: clave2="E1DNJ6PRKN7113"
+          args: cloudfront create-invalidation --distribution-id $clave2 --paths "/index.html"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
+          AWS_DEFAULT_REGION: "Global"
