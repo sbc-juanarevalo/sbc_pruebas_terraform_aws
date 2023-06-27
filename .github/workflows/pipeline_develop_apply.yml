@@ -76,7 +76,7 @@ jobs:
         run: export PATH=$PATH:/algunaVariable
 
       - name: VerVariable
-        if: ${{ DistributionID == '"E1DNJ6PRKN7113"' }}  
+        #if: ${{ DistributionID == '"E1DNJ6PRKN7113"' }}  
         run: echo "$AWS_ACCESS_KEY_ID, $AWS_DEFAULT_REGION, $DistributionID"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
