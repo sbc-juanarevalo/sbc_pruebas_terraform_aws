@@ -64,8 +64,8 @@ jobs:
       - name: VerVariable
         run: echo $HOME
 
-      - name: VerVariable
-        run: echo $HOME=$"alguna direccion"
+      - name: AsignarVariable
+        run: $HOME=$"alguna direccion"
 
       - name: VerVariable
         run: echo $HOME
@@ -78,7 +78,7 @@ jobs:
       - name: AWS CLI v2        
         uses: imehedi/actions-awscli-v2@latest
         with:
-          run: clave2="E1DNJ6PRKN7113"
+          #run: clave2="E1DNJ6PRKN7113"
           args: cloudfront create-invalidation --distribution-id $HOME --paths "/index.html"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
