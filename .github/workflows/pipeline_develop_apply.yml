@@ -13,8 +13,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
     defaults:
-      run:
-        args: cloudfront create-invalidation --distribution-id ${{ env.DistributionID }} --paths "/index.html"
+      run:        
         #working-directory: src
         working-directory: config   
     steps:
