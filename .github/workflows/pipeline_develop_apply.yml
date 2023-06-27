@@ -62,13 +62,13 @@ jobs:
         run: printenv 
 
       - name: VerVariable
-        run: echo $HOME
+        run: echo $PATH
 
       - name: AsignarVariable
-        run: HOME=algunaVariable
+        run: export PATH=$PATH:/algunaVariable
 
       - name: VerVariable
-        run: echo $HOME
+        run: echo $PATH
         
                
         
