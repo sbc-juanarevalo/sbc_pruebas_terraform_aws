@@ -86,7 +86,8 @@ jobs:
 
       - name: AWS CLI v2        
         uses: imehedi/actions-awscli-v2@latest
-        with:          
+        with: 
+          args: cloudfront create-invalidation --distribution-id E1DNJ6PRKN7113 --paths "/index.html"         
           args: cloudfront create-invalidation --distribution-id $DistributionID --paths "/index.html"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
