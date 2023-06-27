@@ -75,8 +75,7 @@ jobs:
       - name: AsignarVariable
         run: export PATH=$PATH:/algunaVariable
 
-      - name: VerVariable
-        #if: ${{ DistributionID == '"E1DNJ6PRKN7113"' }}  
+      - name: VerVariable        
         run: echo "$AWS_ACCESS_KEY_ID, $AWS_DEFAULT_REGION, $DistributionID"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
@@ -85,8 +84,7 @@ jobs:
           DistributionID: '"E1DNJ6PRKN7113"'
       
 
-      - name: AWS CLI v2
-        if: ${{ DistributionID == '"E1DNJ6PRKN7113"' }}      
+      - name: AWS CLI v2              
         uses: imehedi/actions-awscli-v2@latest
         with:          
           args: cloudfront create-invalidation --distribution-id $DistributionID --paths "/index.html"
