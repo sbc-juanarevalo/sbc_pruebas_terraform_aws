@@ -65,22 +65,19 @@ jobs:
       - name: loadconfig
         run: clave2="algunaclave"
       
-
-      - name: VerVariablesCompletas
-        run: printenv 
+     
 
       - name: VerVariable
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
 
-      - name: AsignarVariable
-        run: export PATH=$PATH:/algunaVariable
-
+   
 
       - name: Set variables
         run: |
-          VER=$(cat config.yaml)
-          echo "$VER"
-          echo "VERSION=$VER" >> $GITHUB_ENV
+          env VAR=$(cat config.yaml)
+          echo "$VAR"
+          env
+          
 
       - name: VerVariable        
         run: echo "$AWS_ACCESS_KEY_ID, $AWS_DEFAULT_REGION, $DistributionID, ${{ env.DistributionID }}, $VER"
