@@ -46,7 +46,15 @@ jobs:
       #  run: terraform apply -var="branch_name=dev" -auto-approve
 
       #- name: uploadconfig
-      #  run: TEST_VAR='Hello World!'           
+      #  run: TEST_VAR='Hello World!
+      
+      - name: "Say Hello Mona it's Monday"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: Mona
+          Greeting: Hola
+          DAY_OF_WEEK: Monday
+        
       
       - name: verRuta
         run: ls
@@ -70,32 +78,15 @@ jobs:
       - name: VerVariable
         run: echo $PATH       
       
-        
-        name: Greeting on variable day
-        on:
-          workflow_dispatch        
-        env:
-          DAY_OF_WEEK: Monday        
-        jobs:
-          greeting_job:
-            runs-on: ubuntu-latest
-            env:
-              Greeting: Hello
-            steps:
-              - name: "Say Hello Mona it's Monday"
-                run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
-                env:
-                  First_Name: Mona
-        
-        
-     
 
-      - name: AWS CLI v2        
-        uses: imehedi/actions-awscli-v2@latest
-        with:
-          #run: clave2="E1DNJ6PRKN7113"
-          args: cloudfront create-invalidation --distribution-id config.yaml --paths "/index.html"
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
-          AWS_DEFAULT_REGION: "Global"
+      #- name: AWS CLI v2        
+      #  uses: imehedi/actions-awscli-v2@latest
+      #  with:
+      #    #run: clave2="E1DNJ6PRKN7113"
+      #    args: cloudfront create-invalidation --distribution-id config.yaml --paths "/index.html"
+      #  env:
+      #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
+      #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
+      #    AWS_DEFAULT_REGION: "Global"
+
+      
