@@ -70,7 +70,7 @@ jobs:
         run: printenv 
 
       - name: VerVariable
-        run: echo $PATH
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
 
       - name: AsignarVariable
         run: export PATH=$PATH:/algunaVariable
