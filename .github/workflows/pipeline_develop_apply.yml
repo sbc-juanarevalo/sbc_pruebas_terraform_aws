@@ -78,7 +78,7 @@ jobs:
 
       - name: Set variables
         run: |
-          VER=$(cat USER)
+          VER=$(cat config.yaml)
           echo "VERSION=$VER" >> $GITHUB_ENV
 
       - name: VerVariable        
