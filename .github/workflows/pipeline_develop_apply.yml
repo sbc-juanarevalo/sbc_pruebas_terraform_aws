@@ -94,8 +94,8 @@ jobs:
           AWS_DEFAULT_REGION: "Global"
           #DistributionID: '"E1DNJ6PRKN7113"'
           #DistributionID: "E1DNJ6PRKN7113"
-          DistributionID: 'E1DNJ6PRKN7113'
-          #DistributionID: E1DNJ6PRKN7113
+          #DistributionID: 'E1DNJ6PRKN7113'
+          DistributionID: E1DNJ6PRKN7113
           #DistributionID: "'E1DNJ6PRKN7113'"
           
 
