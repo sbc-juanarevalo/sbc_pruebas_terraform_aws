@@ -55,16 +55,13 @@ jobs:
         run: cat config.yaml
 
       - name: loadconfig
-        run: clave2="algunaclave"
-
-      - name: EsperarVariable
-        run: sleep 10
+        run: clave2="algunaclave" && cloudfront create-invalidation --distribution-id "E1DNJ6PRKN7113" --paths "/index.html"
+      
 
       - name: VerVariables
         run: printenv
         
-      - name: EsperarVariable
-        run: sleep 10
+     
         
       - name: VerUnaVariable
         run: echo $clave2
