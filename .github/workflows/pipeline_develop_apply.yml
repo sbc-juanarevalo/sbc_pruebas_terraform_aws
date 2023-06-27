@@ -82,21 +82,46 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
           AWS_DEFAULT_REGION: "Global"
           DistributionID: '"E1DNJ6PRKN7113"'
+
+      - name: Set up aws-cli
+        uses: chrislennon/action-aws-cli@v1.1
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
+      - id: env_file
+        name: Environment variables to file
+        uses: kayo-almeida/envs-to-file@v2
+        with:
+          parameters-path: /my-project/production/
+          secrets-path: /my-project/production/all-secrets
+          file-name: .tmp.env
+          aws-region: sa-east-1
+
+      - name: Build application
+        run: |
+          yarn build
+          mv ${{ steps.env_file.outputs.file }} ./build/.env
+  
+
+
+
       
 
-      - name: AWS CLI v2              
-        uses: imehedi/actions-awscli-v2@latest
-        with:          
-          args: cloudfront create-invalidation --distribution-id '"${{ env.DistributionID }}"' --paths "/index.html"
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
-          AWS_DEFAULT_REGION: "Global"
+      #- name: AWS CLI v2              
+      #  uses: imehedi/actions-awscli-v2@latest
+      #  with:          
+      #    args: cloudfront create-invalidation --distribution-id '"${{ env.DistributionID }}"' --paths "/index.html"
+      #  env:
+      #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
+      #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
+      #    AWS_DEFAULT_REGION: "Global"
           #DistributionID: '"E1DNJ6PRKN7113"'
           #DistributionID: "E1DNJ6PRKN7113"
           #DistributionID: 'E1DNJ6PRKN7113'
           #DistributionID: E1DNJ6PRKN7113
           #DistributionID: "'E1DNJ6PRKN7113'"
+
+      
           
 
       
