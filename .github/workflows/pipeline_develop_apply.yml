@@ -65,7 +65,7 @@ jobs:
         run: echo $HOME
 
       - name: VerVariable
-        run: echo $HOME="alguna direccion"
+        run: echo $HOME=$"alguna direccion"
 
       - name: VerVariable
         run: echo $HOME
