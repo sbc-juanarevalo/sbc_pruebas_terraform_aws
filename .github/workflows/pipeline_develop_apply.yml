@@ -65,7 +65,7 @@ jobs:
         run: cat config.yaml
 
       - name: loadconfig
-        run: clave2="algunaclave"
+        run: echo $VAR
       
      
 
@@ -74,12 +74,12 @@ jobs:
 
    
 
-      - name: Set variables
+      - name: Set variables 1
         run: |
           env VAR=$(cat config.yaml)
           echo "$VAR"
 
-      - name: Set variables
+      - name: Set variables 2
         run: |          
           env
           
