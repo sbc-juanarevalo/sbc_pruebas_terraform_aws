@@ -1,1 +1,11 @@
-E1DNJ6PRKN7113
+aplication: 
+  infrastructure:
+    cloudfront: 
+      dev: E1DNJ6PRKN711
+      stg: E1DNJ6PRKN711
+      pro: E1DNJ6PRKN711
+    s3:
+      dev: E1DNJ6PRKN711
+      stg: E1DNJ6PRKN711
+      pro: E1DNJ6PRKN711
+
