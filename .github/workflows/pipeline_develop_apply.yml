@@ -70,6 +70,7 @@ jobs:
             echo 2 "$VAR"
             echo 3 '$VAR'
             echo 4 '"$VAR"'
+            echo 5 VAR
             #echo "'$VAR'""
       
      
