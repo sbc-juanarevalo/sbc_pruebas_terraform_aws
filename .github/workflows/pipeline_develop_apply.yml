@@ -12,7 +12,7 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
-      VAR: $(cat config.yaml)
+      #VAR: $(cat config.yaml)
     defaults:
       run:        
         #working-directory: src
@@ -73,10 +73,10 @@ jobs:
 
    
 
-      #- name: Set variables
-      #  run: |
-      #    env VAR=$(cat config.yaml)
-      #    echo "$VAR"
+      - name: Set variables
+        run: |
+          env VAR=$(cat config.yaml)
+          echo "$VAR"
 
       - name: Set variables
         run: |          
@@ -84,7 +84,7 @@ jobs:
           
 
       #- name: VerVariable        
-      #  run: echo "$AWS_ACCESS_KEY_ID, $AWS_DEFAULT_REGION, $DistributionID, ${{ env.DistributionID }}, $VER"
+      #  run: echo "$AWS_ACCESS_KEY_ID, $AWS_DEFAULT_REGION, $DistributionID, ${{ env.DistributionID }}, $VAR"
       #  env:
       #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
       #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
