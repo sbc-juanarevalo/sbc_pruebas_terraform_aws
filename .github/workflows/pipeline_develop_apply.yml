@@ -94,7 +94,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
-          aws-region: "Global"
+          aws-region: us-east-2
       # Build inside Docker containers
       - run: cloudfront create-invalidation --distribution-id "E1DNJ6PRKN7113" --paths "/index.html"
       
