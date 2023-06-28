@@ -80,15 +80,12 @@ jobs:
 
    
 
-      - name: Set variables 1
-        run: |
-          env VAR=$(cat config.yaml)
-          echo "$VAR"
+      #- name: Set variables 1
+      #  run: |
+      #    env VAR=$(cat config.yaml)
+      #    echo "$VAR"
 
-      - name: Set variables 2
-        run: |          
-          env
-
+     
       #- uses: actions/checkout@v3
       - uses: aws-actions/setup-sam@v2
         with:
