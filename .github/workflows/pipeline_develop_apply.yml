@@ -11,13 +11,12 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
-      #VAR: $(cat config.yaml)
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}     
       #VAR: E1DNJ6PRKN7113
     defaults:
       run:        
         #working-directory: src
-        working-directory: config   
+        working-directory: config           
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -72,7 +71,10 @@ jobs:
             chmod +x runconfig.sh
             ./runconfig.sh
             source variables.sh
-            echo $application_infrastructure_cloudfront_stg            
+            echo $application_infrastructure_cloudfront_dev 
+            
+      - name: ComprobarVariable
+        run: echo $application_infrastructure_cloudfront_dev 
           
 
       
