@@ -1,4 +1,4 @@
-aplication: 
+application: 
   infrastructure:
     cloudfront: 
       dev: E1DNJ6PRKN711
