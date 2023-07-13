@@ -58,37 +58,23 @@ jobs:
           DAY_OF_WEEK: Monday
         
       
-      - name: verVariable
-        run: echo $VAR
-
+     
       - name: verArchivoConfig
         run: cat config.yml
-
-      - name: DarPermisosRunconfig
-        run: chmod +x runconfig.sh
-
+     
       - name: verArchivoRun
         run: cat runconfig.sh
 
-      - name: EjecutarArchivoRun
-        run: ./runconfig.sh
-      
+         
 
-      - name: loadconfig
+      - name: cargarVariables
         run: |
-            echo 1 $VAR
-            echo 2 "$VAR"
-            echo 3 '$VAR'
-            echo 4 '"$VAR"'
-            echo 5 VAR
-            #echo "'$VAR'""
+            chmod +x runconfig.sh
+            ./runconfig.sh
+            echo $variables_infrastructure_cloudfront_dev            
+          
+
       
-     
-
-      - name: verVariableEspecifica
-        run: echo $variables_infrastructure_cloudfront_dev
-
-   
      
       #- uses: actions/checkout@v3
       - uses: aws-actions/setup-sam@v2
