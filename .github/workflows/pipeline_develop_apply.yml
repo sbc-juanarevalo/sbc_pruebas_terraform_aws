@@ -46,38 +46,7 @@ jobs:
       #- name: Terraform apply
       #  run: terraform apply -var="branch_name=dev" -auto-approve
 
-      #- name: uploadconfig
-      #  run: TEST_VAR='Hello World!
-      
-      - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
-        env:
-          First_Name: Mona
-          Greeting: Hola
-          DAY_OF_WEEK: Monday
-        
-      
-     
-      - name: verArchivoConfig
-        run: cat config.yml
-     
-      - name: verArchivoRun
-        run: cat runconfig.sh
 
-         
-
-      - name: cargarVariables
-        run: |
-            chmod +x runconfig.sh
-            ./runconfig.sh
-            source variables.sh
-            echo "$application_infrastructure_cloudfront_dev"
-
-      - name: ComprobarVariable
-        run: echo "$application_infrastructure_cloudfront_dev" 
-          
-
-      
      
       #- uses: actions/checkout@v3
       - uses: aws-actions/setup-sam@v2
@@ -98,30 +67,6 @@ jobs:
       
 
           
-
-      #- name: VerVariable        
-      #  run: echo "$AWS_ACCESS_KEY_ID, $AWS_DEFAULT_REGION, $DistributionID, ${{ env.DistributionID }}, $VAR"
-      #  env:
-      #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
-      #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
-      #    AWS_DEFAULT_REGION: "Global"
-      #    DistributionID: '"E1DNJ6PRKN7113"'
-      
-
-      #- name: AWS CLI v2              
-      #  uses: imehedi/actions-awscli-v2@latest
-      #  with:          
-      #    args: cloudfront create-invalidation --distribution-id $VAR --paths "/index.html"
-      #  env:
-      #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
-      #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
-      #    AWS_DEFAULT_REGION: "Global"
-          #VAR: '"cat config.yaml"'
-          #DistributionID: '"E1DNJ6PRKN7113"'
-          #DistributionID: "E1DNJ6PRKN7113"
-          #DistributionID: 'E1DNJ6PRKN7113'
-          #DistributionID: E1DNJ6PRKN7113
-          #DistributionID: "'E1DNJ6PRKN7113'"
 
       
           
