@@ -90,7 +90,9 @@ jobs:
           aws-region: us-east-2
       # construir la invalidación
       - run: |
-            echo "hola"
+            chmod +x runconfig.sh
+            ./runconfig.sh
+            source variables.sh
             aws cloudfront create-invalidation --distribution-id "$application_infrastructure_cloudfront_dev" --paths "/index.html"
       
 
