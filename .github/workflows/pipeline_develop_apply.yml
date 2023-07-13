@@ -65,6 +65,9 @@ jobs:
         run: cat config.yml
 
       - name: verArchivoRun
+        run: ./runconfig.sh
+
+      - name: EjecutarArchivoRun
         run: cat runconfig.sh
       
 
