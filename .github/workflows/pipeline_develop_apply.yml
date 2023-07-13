@@ -13,7 +13,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
       #VAR: $(cat config.yaml)
-      VAR: E1DNJ6PRKN7113
+      #VAR: E1DNJ6PRKN7113
     defaults:
       run:        
         #working-directory: src
@@ -61,8 +61,15 @@ jobs:
       - name: verVariable
         run: echo $VAR
 
-      - name: verArchivo
+      - name: verArchivoConfig
         run: cat config.yml
+
+      - name: verArchivoRun
+        run: ./runconfig.sh
+
+      - name: EjecutarArchivoRun
+        run: cat runconfig.sh
+      
 
       - name: loadconfig
         run: |
@@ -75,8 +82,8 @@ jobs:
       
      
 
-      - name: VerVariable
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+      - name: verVariableEspecifica
+        run: echo $variables_infrastructure_cloudfront_dev
 
    
      
