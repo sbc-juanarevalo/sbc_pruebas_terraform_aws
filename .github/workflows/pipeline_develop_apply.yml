@@ -71,10 +71,10 @@ jobs:
             chmod +x runconfig.sh
             ./runconfig.sh
             source variables.sh
-            echo $application_infrastructure_cloudfront_dev 
-            
+            echo "$application_infrastructure_cloudfront_dev"
+
       - name: ComprobarVariable
-        run: echo $application_infrastructure_cloudfront_dev 
+        run: echo "$application_infrastructure_cloudfront_dev" 
           
 
       
@@ -89,7 +89,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
           aws-region: us-east-2
       # construir la invalidación
-      - run: aws cloudfront create-invalidation --distribution-id "$application_infrastructure_cloudfront_dev" --paths "/index.html"
+      - run: |
+            echo "hola"
+            aws cloudfront create-invalidation --distribution-id "$application_infrastructure_cloudfront_dev" --paths "/index.html"
       
 
           
