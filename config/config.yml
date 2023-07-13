@@ -2,7 +2,7 @@ application:
   infrastructure:
     cloudfront: 
       dev: E1DNJ6PRKN711
-      stg: E1DNJ6PRKN711
+      stg: E1DNJ6PRKN711stg
       pro: E1DNJ6PRKN711
     s3:
       dev: E1DNJ6PRKN711

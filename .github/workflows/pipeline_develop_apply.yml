@@ -72,7 +72,7 @@ jobs:
             chmod +x runconfig.sh
             ./runconfig.sh
             source variables.sh
-            echo $application_infrastructure_cloudfront_dev            
+            echo $application_infrastructure_cloudfront_stg            
           
 
       
