@@ -71,6 +71,7 @@ jobs:
         run: |
             chmod +x runconfig.sh
             ./runconfig.sh
+            source variables.sh
             echo $variables_infrastructure_cloudfront_dev            
           
 

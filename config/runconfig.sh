@@ -76,5 +76,5 @@ for ((i = 2; i < ${#variables[@]}; i += 4)); do
 done
 
 chmod 777 $output_file
-source $output_file
+
 echo "Se ha creado exitosamente el archivo $output_file"
