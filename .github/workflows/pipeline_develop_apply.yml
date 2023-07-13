@@ -93,8 +93,8 @@ jobs:
             chmod +x runconfig.sh
             ./runconfig.sh
             source variables.sh
-            echo '"'$application_infrastructure_cloudfront_dev'"'
-            aws cloudfront create-invalidation --distribution-id '"'$application_infrastructure_cloudfront_dev'"' --paths "/index.html"
+            echo '"$application_infrastructure_cloudfront_dev"'
+            aws cloudfront create-invalidation --distribution-id '"$application_infrastructure_cloudfront_dev"' --paths "/index.html"
       
 
           
