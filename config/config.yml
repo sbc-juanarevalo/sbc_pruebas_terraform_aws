@@ -8,4 +8,8 @@ aplication:
       dev: E1DNJ6PRKN711
       stg: E1DNJ6PRKN711
       pro: E1DNJ6PRKN711
+    ec2:
+      dev: E1DNJ6PRKN711
+      stg: E1DNJ6PRKN711
+      pro: E1DNJ6PRKN711
 
