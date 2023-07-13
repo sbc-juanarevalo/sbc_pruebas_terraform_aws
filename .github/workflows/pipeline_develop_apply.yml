@@ -64,11 +64,14 @@ jobs:
       - name: verArchivoConfig
         run: cat config.yml
 
+      - name: DarPermisosRunconfig
+        run: chmod +x runconfig.sh
+
       - name: verArchivoRun
-        run: ./runconfig.sh
+        run: cat runconfig.sh
 
       - name: EjecutarArchivoRun
-        run: cat runconfig.sh
+        run: ./runconfig.sh
       
 
       - name: loadconfig
