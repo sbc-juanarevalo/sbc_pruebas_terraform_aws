@@ -62,7 +62,7 @@ jobs:
         run: echo $VAR
 
       - name: verArchivo
-        run: cat config.yaml
+        run: cat config.yml
 
       - name: loadconfig
         run: |
@@ -79,12 +79,6 @@ jobs:
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
 
    
-
-      #- name: Set variables 1
-      #  run: |
-      #    env VAR=$(cat config.yaml)
-      #    echo "$VAR"
-
      
       #- uses: actions/checkout@v3
       - uses: aws-actions/setup-sam@v2
@@ -95,7 +89,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
           aws-region: us-east-2
-      # Build inside Docker containers
+      # construir la invalidación
       - run: aws cloudfront create-invalidation --distribution-id "$VAR" --paths "/index.html"
       
 
