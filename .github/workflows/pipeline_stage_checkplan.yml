@@ -1,7 +1,7 @@
-name: Develop CheckPlan
+name: Stage Check Plan
 on:
   pull_request:
-    branches: [develop]
+    branches: [stage]
 
 jobs:
   Check_Plan:
