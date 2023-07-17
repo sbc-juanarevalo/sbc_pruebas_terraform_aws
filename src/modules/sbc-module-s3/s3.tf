@@ -54,6 +54,3 @@ resource "aws_s3_object" "object1" {
  content_type = "text/html"
 }
 
-output "vars3_bucket_regional_domain_name" {
-    value = aws_s3_bucket.webtest2.bucket_regional_domain_name  
-}
