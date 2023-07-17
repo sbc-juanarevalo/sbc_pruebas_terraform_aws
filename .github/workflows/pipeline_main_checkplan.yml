@@ -1,0 +1,41 @@
+name: Main Check Plan
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  Check_Plan:
+    name: "Check Plan"
+    runs-on: ubuntu-20.04
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP }}
+    defaults:
+      run:
+        working-directory: src
+    steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+      
+            - name: Setup Terraform
+              uses: hashicorp/setup-terraform@v1
+              with:
+                terraform_version: 1.0.1
+                terraform_wrapper: false
+      
+            - name: Terraform Format
+              id: fmt
+              run: terraform fmt      
+      
+            - name: Terraform Format check
+              id: check
+              run: terraform fmt -check
+      
+            - name: Terraform Init
+              id: init
+              run: terraform init '-var=branch_name=dev' 
+      
+            - name: Terraform plan
+              id: plan
+              run: terraform plan -var="branch_name=dev"     
+            

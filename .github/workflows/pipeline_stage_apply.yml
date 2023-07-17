@@ -1,0 +1,46 @@
+name: Stage Apply
+on:
+  pull_request:
+    branches: [stage]
+    types: [closed]
+
+jobs:
+  Apply:
+    name: "Apply"
+    if: ${{ github.event.pull_request.merged }}
+    runs-on: ubuntu-20.04
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}  
+    defaults:
+      run:                
+        working-directory: src          
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.1
+          terraform_wrapper: false
+
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt      
+
+      - name: Terraform Format check
+        id: check
+        run: terraform fmt -check
+
+      - name: Terraform Init
+        id: init
+        run: terraform init '-var=branch_name=dev' 
+
+      - name: Terraform plan
+        id: plan
+        run: terraform plan -var="branch_name=dev"
+
+      - name: Terraform apply
+        run: terraform apply -var="branch_name=dev" -auto-approve
+
