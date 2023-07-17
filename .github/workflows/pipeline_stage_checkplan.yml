@@ -1,0 +1,32 @@
+name: Stage Check Plan
+on:
+  pull_request:
+    branches: [stage]
+
+jobs:
+  Check_Plan:
+    name: "Check Plan"
+    runs-on: ubuntu-20.04
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP }}
+    defaults:
+      run:
+        working-directory: config
+    steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+           
+            #- uses: actions/checkout@v3
+            - uses: aws-actions/setup-sam@v2
+              with:
+                use-installer: true
+            - uses: aws-actions/configure-aws-credentials@v2
+              with:
+                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP_ORBIKA }}
+                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP_ORBIKA }}
+                aws-region: us-east-2
+            # construir la invalidación
+            - run: |
+                  chmod +x runconfig.sh && ./runconfig.sh && source variables.sh && echo "$application_infrastructure_cloudfront_dev"
+            #      aws cloudfront create-invalidation --distribution-id "$application_infrastructure_cloudfront_stg" --paths "/index.html"

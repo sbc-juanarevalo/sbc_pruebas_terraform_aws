@@ -1,7 +1,7 @@
-name: Develop Apply
+name: Main Apply
 on:
   pull_request:
-    branches: [develop]
+    branches: [main]
     types: [closed]
 
 jobs:

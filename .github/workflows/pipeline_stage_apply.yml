@@ -1,7 +1,7 @@
-name: Develop Apply
+name: Stage Apply
 on:
   pull_request:
-    branches: [develop]
+    branches: [stage]
     types: [closed]
 
 jobs:

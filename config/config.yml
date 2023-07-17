@@ -1,0 +1,15 @@
+application: 
+  infrastructure:
+    cloudfront: 
+      dev: E1DNJ6PRKN7113
+      stg: E1DNJ6PRKN7113
+      pro: E1DNJ6PRKN7113
+    s3:
+      dev: E1DNJ6PRKN7113
+      stg: E1DNJ6PRKN7113
+      pro: E1DNJ6PRKN7113
+    ec2:
+      dev: E1DNJ6PRKN7113
+      stg: E1DNJ6PRKN7113
+      pro: E1DNJ6PRKN7113
+
